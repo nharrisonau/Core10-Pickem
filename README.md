@@ -1,12 +1,49 @@
-# React + Vite
+# College Football Pick'em
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple web app for making weekly college football picks. Users can sign up, submit predictions for each game, and track their standings over the course of the season.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React** with **Vite** for the frontend
+- **Supabase** for the database and authentication
+- Deployed to **GitHub Pages**
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Email/password authentication
+- Weekly game list with pick submission
+- Score tracking and leaderboards
+- Yearly prediction support
+
+## Local Development
+
+1. Install dependencies
+   ```bash
+   npm install
+   ```
+2. Copy `.env.example` to `.env` and provide your Supabase project credentials.
+3. Start the dev server
+   ```bash
+   npm run dev
+   ```
+
+## Deployment (GitHub Pages)
+
+1. In `vite.config.js`, set the `base` option to the repository name (e.g. `/Core10-Pickem/`).
+2. Build the project
+   ```bash
+   npm run build
+   ```
+3. Deploy the contents of the `dist` directory to the `gh-pages` branch or configure a GitHub Action to publish the site.
+
+## Project Structure
+
+```
+src/
+  components/   reusable UI components
+  pages/        route level pages (WeekGames, Leaderboard, YearlyPicks)
+  functions/    Edge or server functions
+  lib/          Supabase client and utilities
+```
+
+The `supabase/` folder contains the SQL schema used by this app.
