@@ -29,7 +29,7 @@ function App() {
       {user ? (
         <>
           <button onClick={handleSignOut}>Sign Out</button>
-          <WeekGames week={1} user={user} />
+          <WeekGames />
         </>
       ) : (
         <Auth onAuth={setUser} />
