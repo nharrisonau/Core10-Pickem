@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { supabase } from '../lib/supabaseClient'
 
-function WeekGames({ week = 1 }) {
+function WeekGames({ week = 1, user }) {
   const [games, setGames] = useState([])
   const [picks, setPicks] = useState({})
   const [submitting, setSubmitting] = useState(false)
@@ -32,8 +32,9 @@ function WeekGames({ week = 1 }) {
   }
 
   const handleSubmit = async () => {
+    if (!user) return
     setSubmitting(true)
-    const userId = 'demo-user' // 🔁 Replace with `supabase.auth.getUser()` later
+    const userId = user.id
 
     const inserts = Object.entries(picks).map(([gameId, selected_team]) => ({
       user_id: userId,
